@@ -3,11 +3,11 @@ import 'package:rent_portal/colors.dart';
 import 'package:rent_portal/resources/button.dart';
 import 'package:rent_portal/resources/reusable_field.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+class SignUpScreen extends StatefulWidget {
+  const SignUpScreen({super.key});
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<SignUpScreen> createState() => _SignUpScreenState();
 }
 
 // Controllers
@@ -18,9 +18,12 @@ final retypePassCTRl = TextEditingController();
 
 // Global Key
 final _formKey = GlobalKey<FormState>();
-bool autoValidate = false;
 
-class _LoginScreenState extends State<LoginScreen> {
+//bools
+bool autoValidate = false;
+bool visiblePass = true;
+
+class _SignUpScreenState extends State<SignUpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -62,9 +65,8 @@ class _LoginScreenState extends State<LoginScreen> {
                         : AutovalidateMode.disabled,
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 12),
-                      width: double.infinity,
                       decoration: BoxDecoration(
-                          color: Colors.grey.shade100.withOpacity(.4),
+                          color: Colors.grey.shade100.withOpacity(.5),
                           borderRadius: BorderRadius.circular(12)),
                       child: Column(
                         // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -83,30 +85,158 @@ class _LoginScreenState extends State<LoginScreen> {
                           ),
                           ReusableField(
                             hint: "Username",
+                            fieldIcon: const Icon(
+                              Icons.person,
+                              color: black,
+                            ),
                             ctrl: userCTRL,
+                            validator: (value) {
+                              if (value!.length < 8) {
+                                return "Name should be 8 characters long";
+                              }
+                              return null;
+                            },
                           ),
                           ReusableField(
                             hint: "Email",
+                            fieldIcon: const Icon(
+                              Icons.email_outlined,
+                              color: black,
+                            ),
                             ctrl: emailCTRL,
                           ),
                           ReusableField(
                             hint: "Password",
+                            hidePass: visiblePass,
+                            fieldIcon: const Icon(
+                              Icons.lock,
+                              color: black,
+                            ),
+                            suffixIcon: IconButton(
+                                onPressed: () {
+                                  setState(() {
+                                    visiblePass
+                                        ? visiblePass = false
+                                        : visiblePass = true;
+                                  });
+                                },
+                                icon: Icon(visiblePass
+                                    ? Icons.visibility_off
+                                    : Icons.visibility)),
                             ctrl: passCTRL,
+                            validator: (value) {
+                              if (value!.length < 8) {
+                                return "Password should be 8 characters long";
+                              } else if (value.contains(" ")) {
+                                return "Don't use space , (.) , (,)";
+                              }
+                              return null;
+                            },
                           ),
                           ReusableField(
                             hint: "Confirm Password",
+                            hidePass: visiblePass,
+                            fieldIcon: const Icon(
+                              Icons.lock,
+                              color: black,
+                            ),
                             ctrl: retypePassCTRl,
+                            validator: (value) {
+                              if (passCTRL.text.isEmpty) {
+                                return "Password field is Empty";
+                              } else if (value != passCTRL.text) {
+                                return "Password Doesn't Matched";
+                              }
+                              return null;
+                            },
                           ),
                           const SizedBox(
                             height: 5,
                           ),
-                          ReusableButton(name: "Register", onPress: () {}),
+                          ReusableButton(
+                              name: "Register",
+                              onPress: () {
+                                setState(() {
+                                  autoValidate = true;
+                                });
+                                if (_formKey.currentState!.validate()) {
+                                  debugPrint(
+                                      "~~~~~~ USER DETAILS HERE ~~~~~~~");
+                                  debugPrint(
+                                      "~~~~~~ Username : ${userCTRL.text.toString()} ~~~~~~~");
+                                  debugPrint(
+                                      "~~~~~~ Email : ${emailCTRL.text.toString()} ~~~~~~~");
+                                  debugPrint(
+                                      "~~~~~~ Pasword : ${passCTRL.text.toString()} ~~~~~~~");
+                                  debugPrint(
+                                      "~~~~~~ REGISTERED SUCCESSFULLY ~~~~~~~");
+                                } else {}
+                              }),
                           const SizedBox(
-                            height: 20,
+                            height: 10,
+                          ),
+                          const Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Expanded(
+                                child: Divider(
+                                  color: grey,
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(5.0),
+                                child: Text(
+                                  "Sign Up using",
+                                  style: TextStyle(
+                                      color: grey,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.bold,
+                                      fontFamily: "Poppins"),
+                                ),
+                              ),
+                              Expanded(
+                                child: Divider(
+                                  color: grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          ReusableButton(
+                              name: "Google",
+                              btnColor: orange,
+                              textClr: grey,
+                              onPress: () {}),
+                          const SizedBox(
+                            height: 10,
                           ),
                         ],
                       ),
                     ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Already have an account? ",
+                        style: TextStyle(
+                            color: grey, fontSize: 12, fontFamily: "Poppins"),
+                      ),
+                      Text(
+                        "Login",
+                        style: TextStyle(
+                            color: orange,
+                            decoration: TextDecoration.underline,
+                            fontSize: 13,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: "Poppins"),
+                      ),
+                    ],
                   ),
                 ],
               ),

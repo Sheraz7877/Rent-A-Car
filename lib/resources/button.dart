@@ -3,8 +3,15 @@ import 'package:rent_portal/colors.dart';
 
 class ReusableButton extends StatelessWidget {
   final String name;
+  final Color btnColor;
+  final Color textClr;
   final VoidCallback onPress;
-  const ReusableButton({super.key, required this.name, required this.onPress});
+  const ReusableButton(
+      {super.key,
+      required this.name,
+      required this.onPress,
+      this.textClr = grey,
+      this.btnColor = orangeColor});
 
   @override
   Widget build(BuildContext context) {
@@ -14,13 +21,13 @@ class ReusableButton extends StatelessWidget {
         height: 50,
         width: double.infinity,
         decoration: BoxDecoration(
-          color: orangeColor,
+          color: btnColor,
           borderRadius: BorderRadius.circular(12),
         ),
         child: Center(
           child: Text(
             name,
-            style: TextStyle(color: grey),
+            style: TextStyle(color: textClr),
           ),
         ),
       ),
