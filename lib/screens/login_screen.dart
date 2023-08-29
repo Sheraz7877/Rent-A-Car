@@ -1,21 +1,19 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rent_portal/colors.dart';
 import 'package:rent_portal/resources/button.dart';
 import 'package:rent_portal/resources/reusable_field.dart';
-import 'package:rent_portal/screens/login_screen.dart';
 
-class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({super.key});
+class LoginScreen extends StatefulWidget {
+  const LoginScreen({super.key});
 
   @override
-  State<SignUpScreen> createState() => _SignUpScreenState();
+  State<LoginScreen> createState() => _LoginScreenState();
 }
 
 // Controllers
-final userCTRL = TextEditingController();
 final emailCTRL = TextEditingController();
 final passCTRL = TextEditingController();
-final retypePassCTRl = TextEditingController();
 
 // Global Key
 final _formKey = GlobalKey<FormState>();
@@ -24,7 +22,7 @@ final _formKey = GlobalKey<FormState>();
 bool autoValidate = false;
 bool visiblePass = true;
 
-class _SignUpScreenState extends State<SignUpScreen> {
+class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,7 +33,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         decoration: const BoxDecoration(
           gradient: LinearGradient(
               colors: [blackColor, lightBlack],
-              begin: Alignment.topLeft,
+              begin: Alignment.topCenter,
               end: Alignment.bottomCenter),
           image: DecorationImage(image: AssetImage("assets/car_image.png")),
         ),
@@ -50,7 +48,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     height: 50,
                   ),
                   const Text(
-                    "Find the best\nvehcle for you...",
+                    "Welcome Back! Get\nyour favorite car",
                     style: TextStyle(
                         color: grey,
                         fontSize: 30,
@@ -79,7 +77,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             height: 10,
                           ),
                           const Text(
-                            "REGISTER",
+                            "LOGIN",
                             style: TextStyle(
                               color: blackColor,
                               fontSize: 16,
@@ -87,26 +85,18 @@ class _SignUpScreenState extends State<SignUpScreen> {
                             ),
                           ),
                           ReusableField(
-                            hint: "Username",
+                            hint: "Username or Email",
                             fieldIcon: const Icon(
                               Icons.person,
                               color: black,
                             ),
-                            ctrl: userCTRL,
+                            ctrl: emailCTRL,
                             validator: (value) {
                               if (value!.length < 8) {
                                 return "Name should be 8 characters long";
                               }
                               return null;
                             },
-                          ),
-                          ReusableField(
-                            hint: "Email",
-                            fieldIcon: const Icon(
-                              Icons.email_outlined,
-                              color: black,
-                            ),
-                            ctrl: emailCTRL,
                           ),
                           ReusableField(
                             hint: "Password",
@@ -136,30 +126,13 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               return null;
                             },
                           ),
-                          ReusableField(
-                            hint: "Confirm Password",
-                            hidePass: visiblePass,
-                            fieldIcon: const Icon(
-                              Icons.lock,
-                              color: black,
-                            ),
-                            ctrl: retypePassCTRl,
-                            validator: (value) {
-                              if (passCTRL.text.isEmpty) {
-                                return "Password field is Empty";
-                              } else if (value != passCTRL.text) {
-                                return "Password Doesn't Matched";
-                              }
-                              return null;
-                            },
-                          ),
                           const SizedBox(
                             height: 5,
                           ),
                           ReusableButton(
-                              name: "Register",
+                              name: "Sign in",
                               btnColor: greenColor,
-                              textClr: blackColor,
+                              textClr: black,
                               onPress: () {
                                 setState(() {
                                   autoValidate = true;
@@ -167,8 +140,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 if (_formKey.currentState!.validate()) {
                                   debugPrint(
                                       "~~~~~~ USER DETAILS HERE ~~~~~~~");
-                                  debugPrint(
-                                      "~~~~~~ Username : ${userCTRL.text.toString()} ~~~~~~~");
                                   debugPrint(
                                       "~~~~~~ Email : ${emailCTRL.text.toString()} ~~~~~~~");
                                   debugPrint(
@@ -191,7 +162,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               Padding(
                                 padding: EdgeInsets.all(5.0),
                                 child: Text(
-                                  "Sign Up using",
+                                  "or Sign in using",
                                   style: TextStyle(
                                       color: grey,
                                       fontSize: 12,
@@ -212,8 +183,29 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           ReusableButton(
                               name: "Google",
                               btnColor: grey,
-                              textClr: blackColor,
-                              onPress: () {}),
+                              textClr: black,
+                              onPress: () {
+                                showCupertinoDialog(
+                                    context: context,
+                                    builder: (context) {
+                                      return CupertinoAlertDialog(
+                                        content: Text(
+                                            'Google login is under maintainance...'),
+                                        title: Text('Hello friend'),
+                                        actions: [
+                                          TextButton(
+                                              onPressed: () {
+                                                Navigator.pop(context);
+                                              },
+                                              child: Text(
+                                                "Close",
+                                                style: TextStyle(
+                                                    color: blackColor),
+                                              )),
+                                        ],
+                                      );
+                                    });
+                              }),
                           const SizedBox(
                             height: 10,
                           ),
@@ -228,19 +220,16 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       const Text(
-                        "Already have an account? ",
+                        "Don't have an account? ",
                         style: TextStyle(
                             color: grey, fontSize: 12, fontFamily: "Poppins"),
                       ),
                       InkWell(
                         onTap: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const LoginScreen()));
+                          Navigator.pop(context);
                         },
-                        child: const Text(
-                          "Login",
+                        child: Text(
+                          "Sign up",
                           style: TextStyle(
                               color: greenColor,
                               decoration: TextDecoration.underline,

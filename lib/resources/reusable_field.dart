@@ -26,7 +26,7 @@ class ReusableField extends StatelessWidget {
       child: TextFormField(
           controller: ctrl,
           obscureText: hidePass,
-          cursorColor: orange,
+          cursorColor: blackColor,
           decoration: InputDecoration(
             hintText: hint,
             prefixIcon: fieldIcon,
@@ -41,13 +41,13 @@ class ReusableField extends StatelessWidget {
                 borderSide: const BorderSide(color: grey, width: 1)),
             focusedBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(color: orange, width: 2)),
+                borderSide: const BorderSide(color: blackColor, width: 2)),
             errorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
                 borderSide: BorderSide(color: red.shade900, width: 1)),
             focusedErrorBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(10),
-                borderSide: const BorderSide(color: orangeColor, width: 1)),
+                borderSide: const BorderSide(color: lightBlack, width: 1)),
           ),
           validator: validator),
     );

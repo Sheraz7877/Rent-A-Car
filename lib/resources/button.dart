@@ -11,7 +11,7 @@ class ReusableButton extends StatelessWidget {
       required this.name,
       required this.onPress,
       this.textClr = grey,
-      this.btnColor = orangeColor});
+      this.btnColor = lightBlack});
 
   @override
   Widget build(BuildContext context) {
