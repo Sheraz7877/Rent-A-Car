@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:introduction_screen/introduction_screen.dart';
 import 'package:rent_portal/colors.dart';
-import 'package:rent_portal/screens/sign_up_screen.dart';
+
+import '../auth/sign_up_screen.dart';
 
 class OnBoardingScreen extends StatefulWidget {
   const OnBoardingScreen({super.key});

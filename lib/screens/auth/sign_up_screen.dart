@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rent_portal/colors.dart';
 import 'package:rent_portal/resources/button.dart';
 import 'package:rent_portal/resources/reusable_field.dart';
-import 'package:rent_portal/screens/login_screen.dart';
+
+import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
