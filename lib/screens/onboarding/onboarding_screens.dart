@@ -28,11 +28,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             alignment: Alignment.topLeft,
             child: Text(
               "Discover the\nFreedom of Mobility",
-              style: TextStyle(
-                color: greenColor,
-                fontSize: 35,
-                fontFamily: "PoppinsBold",
-              ),
+              style: headingStyle,
             ),
           ),
           bodyWidget: Column(
@@ -40,11 +36,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             children: [
               const Text(
                 "Welcome to VRent, your gateway to\nhassle-free car rentals. Unlock the joy of\nexploring new places, visiting loved ones,\nand embarking on memorable journeys\nwith our diverse fleet of rental cars.",
-                style: TextStyle(
-                  color: grey,
-                  fontSize: 15,
-                  fontFamily: "Poppins",
-                ),
+                style: discriptionStyle,
               ),
               Container(
                 height: 300,
@@ -66,11 +58,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             alignment: Alignment.topLeft,
             child: Text(
               "Your Needs is\nimportant",
-              style: TextStyle(
-                color: greenColor,
-                fontSize: 35,
-                fontFamily: "PoppinsBold",
-              ),
+              style: headingStyle,
             ),
           ),
           bodyWidget: Column(
@@ -78,11 +66,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             children: [
               const Text(
                 "Our app puts you in control. Choose from a\nwide range of vehicles – from sleek sedans\nto spacious SUVs – all designed to cater to\nyour specific requirements.",
-                style: TextStyle(
-                  color: grey,
-                  fontSize: 15,
-                  fontFamily: "Poppins",
-                ),
+                style: discriptionStyle,
               ),
               Container(
                 height: 400,
@@ -104,11 +88,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             alignment: Alignment.topLeft,
             child: Text(
               "Smooth Booking\nProcess",
-              style: TextStyle(
-                color: greenColor,
-                fontSize: 35,
-                fontFamily: "PoppinsBold",
-              ),
+              style: headingStyle,
             ),
           ),
           bodyWidget: Column(
@@ -116,11 +96,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
             children: [
               const Text(
                 "Say goodbye to long queues and\ncomplicated booking procedures. Our\nuser-friendly interface, secure payment\noptions, and real-time updates ensure a\nstress-free experience from reservation to\nreturn. Get ready for a journey without the\nhassle.",
-                style: TextStyle(
-                  color: grey,
-                  fontSize: 15,
-                  fontFamily: "Poppins",
-                ),
+                style: discriptionStyle,
               ),
               const SizedBox(
                 height: 30,

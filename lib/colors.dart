@@ -11,3 +11,6 @@ const lightBlack = Color(0xff272727);
 // Fonts
 
 const poppin = "Poppins";
+// TEXT STYLES
+  const headingStyle = TextStyle(fontSize: 30,fontWeight: FontWeight.bold, fontFamily: "PoppinsBold",color: greenColor);
+  const discriptionStyle = TextStyle(fontSize: 15,fontFamily: poppin,color: grey);

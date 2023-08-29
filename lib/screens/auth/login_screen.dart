@@ -50,11 +50,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   const Text(
                     "Welcome Back! Get\nyour favorite car",
-                    style: TextStyle(
-                        color: grey,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "PoppinsBold"),
+                    style: headingStyle,
                     textAlign: TextAlign.left,
                   ),
                   const SizedBox(

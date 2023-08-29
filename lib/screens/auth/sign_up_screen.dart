@@ -52,11 +52,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                   const Text(
                     "Find the best\nvehcle for you...",
-                    style: TextStyle(
-                        color: grey,
-                        fontSize: 30,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: "PoppinsBold"),
+                    style: headingStyle,
                     textAlign: TextAlign.left,
                   ),
                   const SizedBox(

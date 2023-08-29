@@ -34,11 +34,7 @@ class _ForgetPassState extends State<ForgetPass> {
                 ),
                 const Text(
                   'Forget Password',
-                  style: TextStyle(
-                    fontFamily: "PoppinsBold",
-                    fontSize: 25,
-                    color: greenColor,
-                  ),
+                  style: headingStyle,
                 ),
                 const SizedBox(
                   height: 30,
@@ -47,11 +43,7 @@ class _ForgetPassState extends State<ForgetPass> {
                     child: Text(
                   'Enter your registered Email Address\n to reset your password',
                   textAlign: TextAlign.center,
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontFamily: "Poppins",
-                      color: grey,
-                      fontWeight: FontWeight.w400),
+                  style: discriptionStyle,
                 )),
                 const SizedBox(
                   height: 50,
