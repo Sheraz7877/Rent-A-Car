@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rent_portal/colors.dart';
 import 'package:rent_portal/resources/button.dart';
 import 'package:rent_portal/resources/reusable_field.dart';
+import 'package:rent_portal/screens/auth/forget_password.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -126,8 +127,14 @@ class _LoginScreenState extends State<LoginScreen> {
                               return null;
                             },
                           ),
+                           InkWell(
+                            onTap: (){
+                              Navigator.push(context, MaterialPageRoute(builder: (constext) => const ForgetPass()));
+                            },
+                            child:  const Align(alignment:Alignment.topRight,child: Text('Forget Password?   ',style:TextStyle(fontSize: 13,fontWeight: FontWeight.bold,color: Colors.white70) ,))),
+                          
                           const SizedBox(
-                            height: 5,
+                            height: 10,
                           ),
                           ReusableButton(
                               name: "Sign in",
@@ -189,15 +196,15 @@ class _LoginScreenState extends State<LoginScreen> {
                                     context: context,
                                     builder: (context) {
                                       return CupertinoAlertDialog(
-                                        content: Text(
+                                        content: const Text(
                                             'Google login is under maintainance...'),
-                                        title: Text('Hello friend'),
+                                        title: const Text('Hello friend'),
                                         actions: [
                                           TextButton(
                                               onPressed: () {
                                                 Navigator.pop(context);
                                               },
-                                              child: Text(
+                                              child: const Text(
                                                 "Close",
                                                 style: TextStyle(
                                                     color: blackColor),
@@ -228,7 +235,7 @@ class _LoginScreenState extends State<LoginScreen> {
                         onTap: () {
                           Navigator.pop(context);
                         },
-                        child: Text(
+                        child: const Text(
                           "Sign up",
                           style: TextStyle(
                               color: greenColor,
