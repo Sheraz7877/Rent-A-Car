@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:rent_portal/colors.dart';
 import 'package:rent_portal/resources/button.dart';
 import 'package:rent_portal/resources/reusable_field.dart';
-
 import 'login_screen.dart';
 
 class SignUpScreen extends StatefulWidget {
@@ -42,7 +41,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
         ),
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(12.0),
             child: SafeArea(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

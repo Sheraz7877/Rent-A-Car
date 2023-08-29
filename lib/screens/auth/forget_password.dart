@@ -24,7 +24,7 @@ class _ForgetPassState extends State<ForgetPass> {
           ),
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8),
+          padding: const EdgeInsets.all(12),
           child: SafeArea(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,

@@ -40,7 +40,7 @@ class _LoginScreenState extends State<LoginScreen> {
         ),
         child: SingleChildScrollView(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(12.0),
             child: SafeArea(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -127,7 +127,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             onTap: (){
                               Navigator.push(context, MaterialPageRoute(builder: (constext) => const ForgetPass()));
                             },
-                            child:  const Align(alignment:Alignment.topRight,child: Text('Forget Password?   ',style:TextStyle(fontSize: 13,fontWeight: FontWeight.bold,color: Colors.white70) ,))),
+                            child:  const Align(alignment:Alignment.topRight,child: Text('Forget Password?   ',style:TextStyle(fontSize: 13,fontWeight: FontWeight.bold,color: Colors.white70, ) ,))),
                           
                           const SizedBox(
                             height: 10,

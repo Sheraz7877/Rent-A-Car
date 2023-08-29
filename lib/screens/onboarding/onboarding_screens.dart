@@ -73,7 +73,7 @@ class _OnBoardingScreenState extends State<OnBoardingScreen> {
                 width: double.infinity,
                 decoration: const BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/civic.png"),
+                        image: AssetImage("assets/userneed.png"),
                         fit: BoxFit.contain)),
               )
             ],
